@@ -318,6 +318,10 @@ public final class Settings {
 		return locale;
 	}
 
+	public static void setLocale(final String locale) {
+		Settings.locale = locale;
+	}
+
 	public static double getMoneyPenalty() {
 		return moneyPenalty;
 	}
