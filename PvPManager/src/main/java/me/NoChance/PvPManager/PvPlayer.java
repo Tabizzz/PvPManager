@@ -31,6 +31,7 @@ public class PvPlayer extends EcoPlayer {
 	private boolean pvpLogged;
 	private boolean override;
 	private boolean loaded;
+	private boolean inForcedWorld;
 	private long toggleTime;
 	private long respawnTime;
 	private long taggedTime;
@@ -71,7 +72,7 @@ public class PvPlayer extends EcoPlayer {
 	}
 
 	public final boolean hasPvPEnabled() {
-		return this.pvpState;
+		return this.pvpState || inForcedWorld;
 	}
 
 	public final boolean hasPvPLogged() {
@@ -218,6 +219,10 @@ public class PvPlayer extends EcoPlayer {
 
 	public final void setPvpLogged(final boolean pvpLogged) {
 		this.pvpLogged = pvpLogged;
+	}
+
+	public final void setInForcedWorld(final boolean forcedWorld) {
+		this.inForcedWorld = forcedWorld;
 	}
 
 	public final boolean hasRespawnProtection() {

@@ -100,6 +100,7 @@ public final class Settings {
 	private static int actionBarTotalBars;
 	private static List<String> newbieBlacklist;
 	private static Set<String> worldsExcluded;
+	private static Set<String> worldsForced;
 	private static Set<String> playerKillsWGExclusions;
 	private static boolean simpleClansNoPvPInWar;
 	private static ConfigurationSection GENERAL;
@@ -141,6 +142,7 @@ public final class Settings {
 		soupHealth = GENERAL.getDouble("Auto Soup.Health", 0);
 		soupBowlDisappear = GENERAL.getBoolean("Auto Soup.Bowl Disappear", false);
 		worldsExcluded = new HashSet<>(getList(GENERAL.getStringList("World Exclusions")));
+		worldsForced = new HashSet<>(getList(GENERAL.getStringList("Force Pvp Worlds")));
 
 		borderHoppingVulnerable = BORDERHOPPING.getBoolean("Vulnerable", true);
 		borderHoppingPushback = BORDERHOPPING.getBoolean("Push Back", true);
@@ -360,6 +362,10 @@ public final class Settings {
 
 	public static Set<String> getWorldsExcluded() {
 		return worldsExcluded;
+	}
+
+	public static Set<String> getWorldsForced() {
+		return worldsForced;
 	}
 
 	public static boolean isAutoUpdate() {

@@ -206,6 +206,7 @@ public class PlayerListener implements Listener {
 	public final void onPlayerJoin(final PlayerJoinEvent event) {
 		final Player player = event.getPlayer();
 		final PvPlayer pvPlayer = ph.get(player);
+		pvPlayer.setInForcedWorld(CombatUtils.isWorldForced(player.getWorld().getName()));
 		pvPlayer.updatePlayer(player);
 		if (player.isOp() || player.hasPermission("pvpmanager.admin")) {
 			Messages.sendQueuedMsgs(pvPlayer);
@@ -289,8 +290,8 @@ public class PlayerListener implements Listener {
 		final Player player = event.getPlayer();
 		if (CombatUtils.isWorldExcluded(player.getWorld().getName()))
 			return;
-
 		final PvPlayer pvPlayer = ph.get(player);
+		pvPlayer.setInForcedWorld(CombatUtils.isWorldForced(player.getWorld().getName()));
 		if (!player.hasPermission("*")) {
 			if (!pvPlayer.hasPvPEnabled() && player.hasPermission("pvpmanager.forcepvp")) {
 				pvPlayer.setPvP(true);

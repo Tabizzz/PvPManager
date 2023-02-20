@@ -133,6 +133,10 @@ public final class CombatUtils {
 		return Settings.getWorldsExcluded().contains(worldName);
 	}
 
+	public static boolean isWorldForced(final String worldName) {
+		return Settings.getWorldsForced().contains(worldName);
+	}
+
 	public static boolean isHarmfulPotion(final PotionEffectType type) {
 		return harmfulPotions.contains(type.getName());
 	}

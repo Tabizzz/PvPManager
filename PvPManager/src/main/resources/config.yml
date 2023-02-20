@@ -31,6 +31,8 @@ General:
      Bowl Disappear: false
   World Exclusions:
     - 'example'
+  Force Pvp Worlds:
+    - 'example'
     
 # Here you can choose which methods to use to stop 'border hopping' while players are tagged
 # Border hopping is when a player gets in PvP and tries to run into a safe zone to escape
